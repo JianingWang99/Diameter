@@ -117,7 +117,8 @@ for dataset in datasetList:
     connected = nx.is_connected(G)
     if not connected:
     #     print("G is not connected!")
-        G = max(nx.connected_component_subgraphs(G), key=len)
+        connected_component_subgraphs = (G.subgraph(c) for c in nx.connected_components(G))
+        G = max(connected_component_subgraphs, key=len)
 
     writeTofile(recordFile, "number of nodes l.c.c: "+ str(G.number_of_nodes()))
     writeTofile(recordFile, "number of edges l.c.c: "+ str(G.number_of_edges()))
