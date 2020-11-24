@@ -94,17 +94,17 @@ def highestDegreeTreeUpperBound(G):
     return nx.diameter(T_r)
 
 datasetList = []
-for file in os.listdir("../data/"):
+for file in os.listdir("data/"):
     if file.endswith(".txt"):
         dataset = file[:-4]
         datasetList.append(dataset)
-        # print(os.path.join("../data/", file))
+        # print(os.path.join("data/", file))
 
 for dataset in datasetList:
     # dataset = 'ca-GrQc'
     print('running....', dataset)
-    FileName="../data/"+ dataset + '.txt'
-    recordFile = "../record/"+ dataset + '_record.txt'
+    FileName="data/"+ dataset + '.txt'
+    recordFile = "record/"+ dataset + '_record.txt'
     os.makedirs(os.path.dirname(recordFile), exist_ok=True)
 
     Graphtype=nx.Graph()
